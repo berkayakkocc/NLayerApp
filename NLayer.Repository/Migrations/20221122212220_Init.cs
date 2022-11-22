@@ -34,7 +34,6 @@ namespace NLayer.Repository.Migrations
                     Stock = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
-                    ProductFeatureId = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -88,14 +87,14 @@ namespace NLayer.Repository.Migrations
 
             migrationBuilder.InsertData(
                 table: "Product",
-                columns: new[] { "Id", "CategoryId", "CreatedDate", "Name", "Price", "ProductFeatureId", "Stock", "UpdatedDate" },
+                columns: new[] { "Id", "CategoryId", "CreatedDate", "Name", "Price", "Stock", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2022, 11, 22, 1, 58, 7, 44, DateTimeKind.Local).AddTicks(6306), "Kalem 1", 100m, 0, 200m, null },
-                    { 2, 1, new DateTime(2022, 11, 22, 1, 58, 7, 44, DateTimeKind.Local).AddTicks(6481), "Kalem 3", 200m, 0, 30m, null },
-                    { 3, 1, new DateTime(2022, 11, 22, 1, 58, 7, 44, DateTimeKind.Local).AddTicks(6483), "Kalem 3", 600m, 0, 60m, null },
-                    { 4, 2, new DateTime(2022, 11, 22, 1, 58, 7, 44, DateTimeKind.Local).AddTicks(6486), "Kitap 1", 600m, 0, 60m, null },
-                    { 5, 2, new DateTime(2022, 11, 22, 1, 58, 7, 44, DateTimeKind.Local).AddTicks(6487), "Kitap 2", 1500m, 0, 100m, null }
+                    { 1, 1, new DateTime(2022, 11, 23, 0, 22, 20, 652, DateTimeKind.Local).AddTicks(339), "Kalem 1", 100m, 200m, null },
+                    { 2, 1, new DateTime(2022, 11, 23, 0, 22, 20, 652, DateTimeKind.Local).AddTicks(353), "Kalem 3", 200m, 30m, null },
+                    { 3, 1, new DateTime(2022, 11, 23, 0, 22, 20, 652, DateTimeKind.Local).AddTicks(355), "Kalem 3", 600m, 60m, null },
+                    { 4, 2, new DateTime(2022, 11, 23, 0, 22, 20, 652, DateTimeKind.Local).AddTicks(356), "Kitap 1", 600m, 60m, null },
+                    { 5, 2, new DateTime(2022, 11, 23, 0, 22, 20, 652, DateTimeKind.Local).AddTicks(357), "Kitap 2", 1500m, 100m, null }
                 });
 
             migrationBuilder.InsertData(
