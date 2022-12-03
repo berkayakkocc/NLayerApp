@@ -41,6 +41,7 @@ namespace NLayer.API.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             var products = await _service.GetByIdAsync(id);
+            
 
             var productsDto = _mapper.Map<ProductDto>(products);
            
