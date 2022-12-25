@@ -65,10 +65,7 @@ namespace NLayer.API.Controllers
         public async Task<IActionResult> Remove(int id)
         {
             var product = await _service.GetByIdAsync(id);
-            if (product==null)
-            {
-                return CreateActionResult(CustomResponseDto<ProductDto>.Fail(404,"Bu id sahip ürünümüz yok"));
-            }
+          
             await _service.RemoveAsync(product);
             return CreateActionResult(CustomResponseDto<ProductDto>.Success(204));
         }

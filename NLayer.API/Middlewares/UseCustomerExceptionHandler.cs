@@ -7,7 +7,7 @@ namespace NLayer.API.Middlewares
 {
     public static class UseCustomerExceptionHandler
     {
-        public static void UseCustomExpection(this IApplicationBuilder app)
+        public static void UserCustomExpection(this IApplicationBuilder app)
         {
             app.UseExceptionHandler(config =>
             {
