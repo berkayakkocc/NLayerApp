@@ -61,7 +61,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCustomExpection();
+app.UserCustomExpection();
 
 app.UseAuthorization();
 
