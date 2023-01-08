@@ -9,6 +9,7 @@ using NLayer.Service.Automapper;
 using NLayer.Service.Services;
 using Module = Autofac.Module;
 using System.Reflection;
+using NLayer.Caching;
 
 namespace NLayer.API.Modules
 {
@@ -28,6 +29,7 @@ namespace NLayer.API.Modules
             builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly).Where(x => x.Name.EndsWith("Repository")).AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly).Where(x => x.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerLifetimeScope();
 
+            builder.RegisterType<ProductServiceWithCaching>().As<IProductService>();
         }
     }
 }

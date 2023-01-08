@@ -17,10 +17,11 @@ namespace NLayer.API.Controllers
      
         private readonly IProductService _service;
 
-        public ProductsController(IMapper mapper, IProductService service)
+        public ProductsController(IMapper mapper, IProductService productService)
         {
+
             _mapper = mapper;
-            _service = service;
+            _service = productService;
         }
 
         [HttpGet("GetProductsWithCategory")]
