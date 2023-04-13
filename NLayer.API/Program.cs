@@ -32,6 +32,10 @@ namespace NLayer.API
 
             builder.Services.AddAutoMapper(typeof(MapProfile));
 
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<IProductService, ProductService>();
+
+
             builder.Services.AddDbContext<AppDbContext>(x =>
             {
                 x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"), option =>
