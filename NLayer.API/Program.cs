@@ -23,7 +23,7 @@ namespace NLayer.API
 
             // Add services to the container.
 
-            builder.Services.AddControllers(options => options.Filters.Add(new ValidateFilterAttribute())).AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<ProductDtoValidator>());
+            builder.Services.AddControllersWithViews(options => options.Filters.Add(new ValidateFilterAttribute())).AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<ProductDtoValidator>());
 
             builder.Services.Configure<ApiBehaviorOptions>(options =>
             {
