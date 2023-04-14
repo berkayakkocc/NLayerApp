@@ -12,7 +12,7 @@ namespace NLayer.Core.Repositories
         Task AddRangeAsync(IEnumerable<T> entities);
         void Update(T entity);
         void Remove(T entity);
-        void RemoveRangeAsync(IEnumerable<T> entities);
+        void RemoveRange(IEnumerable<T> entities);
 
     }
 }
