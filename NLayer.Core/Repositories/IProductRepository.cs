@@ -1,4 +1,6 @@
-﻿namespace NLayer.Core.Repositories
+﻿using NLayer.Core.DTOs;
+
+namespace NLayer.Core.Repositories
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
