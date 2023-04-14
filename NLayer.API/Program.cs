@@ -7,6 +7,7 @@ using NLayer.API.Filters;
 using NLayer.API.Middlewares;
 using NLayer.API.Modules;
 using NLayer.Repository;
+using NLayer.Service.Mapping;
 using NLayer.Service.Validations;
 using System.Reflection;
 
@@ -35,6 +36,7 @@ namespace NLayer.API
             builder.Services.AddMemoryCache();
 
             builder.Services.AddScoped(typeof(NotFoundFilter<>));
+            builder.Services.AddAutoMapper(typeof(MapProfile));
            
 
             builder.Services.AddDbContext<AppDbContext>(x =>
