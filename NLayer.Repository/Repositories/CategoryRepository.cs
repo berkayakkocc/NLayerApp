@@ -4,11 +4,11 @@ using NLayer.Core.Repositories;
 
 namespace NLayer.Repository.Repositories
 {
-    public class CategoryRepository:GenericRepository<Category>,ICategoryRepository
+    public class CategoryRepository : GenericRepository<Category>, ICategoryRepository
     {
-        public CategoryRepository(AppDbContext context):base(context)
+        public CategoryRepository(AppDbContext context) : base(context)
         {
-            
+
         }
 
         public async Task<Category> GetSingleCategoryByIdWithProductsAsync(int categoryId)

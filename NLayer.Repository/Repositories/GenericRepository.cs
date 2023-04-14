@@ -37,7 +37,7 @@ namespace NLayer.Repository.Repositories
 
         public async Task<T> GetByIdAsync(int id)
         {
-         return  await  _dbSet.FindAsync(id);
+            return await _dbSet.FindAsync(id);
         }
 
         public void Remove(T entity)
@@ -55,9 +55,9 @@ namespace NLayer.Repository.Repositories
             _dbSet.Update(entity);
         }
 
-        public  IQueryable<T> Where(Expression<Func<T, bool>> expression)
+        public IQueryable<T> Where(Expression<Func<T, bool>> expression)
         {
-            return  _dbSet.Where(expression);
+            return _dbSet.Where(expression);
         }
     }
 }

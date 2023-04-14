@@ -26,7 +26,7 @@ namespace NLayer.Caching
             _repository = repository;
             _unitOfWork = unitOfWork;
 
-            if (!_memoryCache.TryGetValue(CacheProductKey,out _))
+            if (!_memoryCache.TryGetValue(CacheProductKey, out _))
             {
                 _memoryCache.Set(CacheProductKey, _repository.GetProductsWithCategory().Result);
             }
@@ -36,7 +36,7 @@ namespace NLayer.Caching
         {
             await _repository.AddAsync(entity);
             await _unitOfWork.CommitAsync();
-           await  CacheAllProductsAsync();
+            await CacheAllProductsAsync();
             return entity;
         }
 
@@ -70,16 +70,16 @@ namespace NLayer.Caching
         public Task<Product> GetByIdAsync(int id)
         {
             var product = _memoryCache.Get<List<Product>>(CacheProductKey).FirstOrDefault(x => x.Id == id);
-          
+
             if (product == null)
             {
                 throw new NotFoundException($"{typeof(Product).Name}({id}) not found");
             }
-           
+
             return Task.FromResult(product);
         }
 
-        
+
 
         public async Task RemoveAsync(Product entity)
         {
@@ -112,6 +112,6 @@ namespace NLayer.Caching
             _memoryCache.Set(CacheProductKey, await _repository.GetAll().ToListAsync());
         }
 
-       
+
     }
 }

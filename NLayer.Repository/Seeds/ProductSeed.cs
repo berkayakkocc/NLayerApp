@@ -12,7 +12,7 @@ namespace NLayer.Repository.Seeds
             {
                 Id = 1,
                 CategoryId = 1,
-                Name ="Kalem 1",
+                Name = "Kalem 1",
                 Price = 100,
                 Stock = 20,
                 CreatedDate = DateTime.Now
@@ -54,7 +54,7 @@ namespace NLayer.Repository.Seeds
                  CreatedDate = DateTime.Now
              }
             );
-            
+
 
         }
     }
