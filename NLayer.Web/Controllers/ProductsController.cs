@@ -22,17 +22,15 @@ namespace NLayer.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View((await _productApiService.GetProductsWithCategoryAsync()));
+            return View(await _productApiService.GetProductsWithCategoryAsync());
         }
 
         public async Task<IActionResult> Save()
         {
-            var categories = await _categoryApiService.GetAllAsync();
-
             var categoriesDto = await _categoryApiService.GetAllAsync();
+           
             
             ViewBag.categories = new SelectList(categoriesDto, "Id", "Name");
-
             return View();
         }
 
@@ -42,16 +40,13 @@ namespace NLayer.Web.Controllers
             if (ModelState.IsValid)
             {
                 await _productApiService.SaveAsync(productDto);
-
+                
                 return RedirectToAction(nameof(Index));
             }
 
             var categoriesDto = await _categoryApiService.GetAllAsync();
-
-
-
+          
             ViewBag.categories = new SelectList(categoriesDto, "Id", "Name");
-
             return View();
         }
         
@@ -59,12 +54,11 @@ namespace NLayer.Web.Controllers
         public async Task<IActionResult> Update(int id)
         {
             var product = await _productApiService.GetByIdAsync(id);
-
+           
             var categoriesDto = await _categoryApiService.GetAllAsync();
-
-
+            
+            
             ViewBag.categories = new SelectList(categoriesDto, "Id", "Name", product.CategoryId);
-
             return View(product);
 
         }
@@ -78,12 +72,11 @@ namespace NLayer.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
+
             var categoriesDto = await _categoryApiService.GetAllAsync();
-
+            
            
-
             ViewBag.categories = new SelectList(categoriesDto, "Id", "Name", productDto.CategoryId);
-
             return View(productDto);
         }
 
